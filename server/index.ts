@@ -31,6 +31,10 @@ app.use(express.static('client'));
 app.get('/', (req: Request, res: Response) => {
   res.sendFile(__dirname + '/client/index.html');
 });
+app.get('/log/time', (req: Request, res: Response) => {
+  const currentTime = new Date().toLocaleTimeString();
+  res.send("The current time is " + currentTime + ".");
+});
 // Initialize the websocket server
 initializeWebsocketServer(server);
 
